@@ -1,7 +1,7 @@
 {
   "headers": [
     {
-      "source": "/registry/(.*).json",
+      "source": "/registry/(.*)",
       "headers": [
         {
           "key": "Content-Type",
@@ -10,6 +10,14 @@
         {
           "key": "Access-Control-Allow-Origin",
           "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type"
         }
       ]
     }
