@@ -1,3 +1,5 @@
+"use client"
+
 import ChartDisplay from "@/app/utils/chart-display";
 import { HoverGlowBarChart } from "@/charts/barcharts/hover-glow/hover-glow-barchart";
 import HoverGlowHorizontalBarChart from "@/charts/barcharts/hover-glow/hover-glow-horizontal-barchart";
