@@ -15,7 +15,7 @@
   },
   "files": [
     {
-      "path": "hover-glow-barchart.tsx",
+      "path": "charts/barcharts/hover-glow-barchart.tsx",
       "type": "registry:ui"
     }
   ]
