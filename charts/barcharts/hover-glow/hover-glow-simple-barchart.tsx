@@ -47,7 +47,7 @@ const chartConfig = {
 export function HoverGlowSimpleBarChart() {
   const [hoveredIndex , setHoveredIndex ] = useState(null);
   return (
-    <Card className="">
+    <Card className="border-none ">
       <CardHeader>
         <CardTitle>Bar Chart - Simple</CardTitle>
          <CardDescription className="">          Showing total visitors for the last 6 months
@@ -116,7 +116,7 @@ export function HoverGlowSimpleBarChart() {
                   y={y}
                   width={width}
                   height={height}
-                  fill={isHover ? "var(--chart-1)" : "#0A0A0A"}
+                  fill={isHover ? "var(--chart-1)" : "#444444"}
                   filter={isHover ? "url(#glow)": "none"} 
                   rx={10}
                   ry={10}
