@@ -22,7 +22,7 @@ export const components: ComponentProps[] = [
       __dirname,
       "../charts/barcharts/hover-glow/hover-glow-barchart"
     ),
-    registryDependencies: ["card ","chart"],
+    registryDependencies: ["chart"],
     dependencies: ["recharts"],
   },
   

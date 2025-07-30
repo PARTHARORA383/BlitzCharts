@@ -1,9 +1,7 @@
 {
   "name": "hover-glow-barchart",
   "type": "registry:ui",
-  "registryDependencies": [
-    "card ",
-    "chart"
+  "registryDependencies": ["chart"
   ],
   "dependencies": [
     "recharts"
