@@ -1,7 +1,7 @@
 {
   "name": "hover-glow-barchart",
   "type": "registry:ui",
-  "registryDependencies": ["card","chart"],
+  "registryDependencies": [],
   "dependencies": ["recharts", "lucide-react"],
   "devDependencies": [],
   "tailwind": {},
