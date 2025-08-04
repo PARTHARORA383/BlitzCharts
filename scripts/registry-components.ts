@@ -24,7 +24,35 @@ export const components: ComponentProps[] = [
     ),
     registryDependencies: ["chart"],
     dependencies: ["recharts"],
+  },{
+    name: "hover-glow-horizontal-barchart",
+    path: path.join(
+      __dirname,
+      "../charts/barcharts/hover-glow/hover-glow-horizontal-barchart"
+    ),
+    registryDependencies: ["chart"],
+    dependencies: ["recharts"],
+  },
+  {
+    name: "gradient-mixed-barchart",
+    path: path.join(
+      __dirname,
+      "../charts/barcharts/gradient-bar/gradient-mixed-barchart"
+    ),
+    registryDependencies: ["chart"],
+    dependencies: ["recharts"],
   },
   
+  {
+    name: "liquid-fill-barchart",
+    path: path.join(
+      __dirname,
+      "../charts/barcharts/liquid-effect-bar/liquid-fill-barchart"
+    ),
+    registryDependencies: ["chart"],
+    dependencies: ["recharts"],
+  }
+  ,
+
 
 ];

@@ -1,81 +1,96 @@
 "use client"
 
 import { cn } from "@/lib/utils";
-import { Sidebar ,SidebarContent, SidebarGroup, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarSeparator } from "../ui/sidebar";
-import { title } from "process";
+import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarSeparator } from "../ui/sidebar";
 import { usePathname } from "next/navigation";
-
+import Link from "next/link";
+import { blitzFont } from "../ui/typography";
+import path from "path";
 
 const GettingStarted = [
   {
     title: "Introduction",
-    url: "docs/Introduction",
-    
+    url: "introduction",
+
   },
   {
     title: "Prerequisites",
-    url: "docs/Prequisites",
-   
+    url: "prerequisites",
+
   },
 
 ]
 
 const Charts = [
   {
-    title : "Barcharts",
-    url : "animated-barcharts"
+    title: "Barcharts",
+    url: "barcharts"
+  },
+  {
+    title: "AreaCharts",
+    url: "barcharts"
+  },
+  {
+    title: "PieCharts",
+    url: "barcharts"
+  },
+  {
+    title: "Histograms",
+    url: "barcharts"
   }
 ]
 
 
 
 
-export function DocsSidebar(){
+export function DocsSidebar() {
 
-const pathname = usePathname()
+  const pathname = usePathname()
 
   return (
 
-    <Sidebar className="bg-transparent">
-      <SidebarContent>
-      <SidebarGroup>
-        <SidebarGroupLabel className="text-[15px] ">Getting Started</SidebarGroupLabel>
-        <SidebarMenu>
-        {GettingStarted.map((item)=>(
-          <SidebarMenuItem  key={item.title}>
-              <SidebarMenuButton className={cn("text-[15px]")}asChild>
-                    <a href={item.url}>
-                      
-                      <span>{item.title}</span>
-                    </a>
-                  </SidebarMenuButton>
+    <Sidebar className="border-none ">
+      <SidebarContent className="lg:pl-12 pt-20 bg-[var(--background-custom)] dark:bg-[var(--sidebar-custom)]">
 
-          </SidebarMenuItem>
-        ))}
-        </SidebarMenu>
-      </SidebarGroup>
+        <SidebarHeader> </SidebarHeader>
+        <SidebarGroup>
+          <SidebarGroupLabel className="text-[15px]">Getting Started</SidebarGroupLabel>
+          <SidebarMenu>
+            {GettingStarted.map((item) => (
+              <SidebarMenuItem key={item.title}>
+                <SidebarMenuButton
+                isActive ={pathname.endsWith(item.url)}
+                className={cn("text-[15px]")} asChild>
+                  
+                  <a href={item.url}>
 
-<SidebarSeparator/>        
-      <SidebarGroup>
-        <SidebarGroupLabel className="text-[16px]">Charts</SidebarGroupLabel>
-        <SidebarMenu>
-        {Charts.map((item)=>(
-            <SidebarMenuItem className={cn('text-[15px]')} key={item.title}>
-   <SidebarMenuButton 
-   isActive={pathname === item.url} 
-   className={cn(`text-[15px] `)}asChild>
-                    <a href={item.url}>
-                      
-                      <span>{item.title}</span>
-                    </a>
-                  </SidebarMenuButton>
-              
-            </SidebarMenuItem>
-        ))}
+                    <span>{item.title}</span>
+                  </a>
+                </SidebarMenuButton>
 
+              </SidebarMenuItem>
+            ))}
+          </SidebarMenu>
+        </SidebarGroup>
 
-        </SidebarMenu>
-      </SidebarGroup>
+        <SidebarGroup>
+          <SidebarGroupLabel className="text-[16px]">Charts </SidebarGroupLabel>
+          <SidebarMenu>
+            {Charts.map((item) => (
+              <SidebarMenuItem className={cn('text-[15px]')} key={item.title}>
+                <SidebarMenuButton
+                  isActive={pathname.endsWith(item.url)}
+                  className={cn(`text-[15px]`)} asChild>
+                  <a href={item.url}>
+                    <span>{item.title}</span>
+                  </a>
+                </SidebarMenuButton>
+
+              </SidebarMenuItem>
+            ))}
+
+          </SidebarMenu>
+        </SidebarGroup>
       </SidebarContent>
 
     </Sidebar>

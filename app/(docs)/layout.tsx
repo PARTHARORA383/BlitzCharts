@@ -1,20 +1,27 @@
 import { DocsSidebar } from "@/components/docs/docs-sidebar";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { Sidebar } from "lucide-react";
-
-
-
+import { ThemeProvider } from "@/components/theme-provider"
+import { Topbar } from "@/components/ui/topbar";
 
 export default function RootLayout({children} : {children : React.ReactNode}){
 
 
   return (
-  <SidebarProvider>
- <DocsSidebar/>
-  
-        <SidebarTrigger />
+
+       <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+        <Topbar/>
+
+        <div className="">
+
+        <SidebarProvider>
+      <DocsSidebar/>
+
+        
+
         {children}
- 
+   
     </SidebarProvider>
+        </div>
+        </ThemeProvider>
   )
 }

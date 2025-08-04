@@ -17,7 +17,7 @@ export default function ChartDisplay({children , charttype ,className , jsoncont
   const code = jsoncontent;
 
 
-  return <div className={cn("relative bg-border/0 border-2 shadow-lg rounded-lg pt-10 overflow-hidden ",
+  return <div className={cn("relative bg-border/0 border-[2px]  border-muted shadow-xl rounded-lg pt-10 overflow-hidden max-w-xl ",
     
     className
   )}>
@@ -36,3 +36,4 @@ export default function ChartDisplay({children , charttype ,className , jsoncont
 
   </div>
 }
+

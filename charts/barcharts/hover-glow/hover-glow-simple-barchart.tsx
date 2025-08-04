@@ -35,11 +35,11 @@ const chartData = [
 const chartConfig = {
   desktop: {
     label: "Desktop",
-    color: "var(--chart-1)",
+    color: "#AFAFFF",
   },
   mobile: {
     label: "Mobile",
-    color: "var(--chart-2)",
+    color: "#5C5CFF",
   },
 } satisfies ChartConfig
 
@@ -47,7 +47,7 @@ const chartConfig = {
 export function HoverGlowSimpleBarChart() {
   const [hoveredIndex , setHoveredIndex ] = useState(null);
   return (
-    <Card className="border-none ">
+    <Card className="border-none rounded-none ">
       <CardHeader>
         <CardTitle>Bar Chart - Simple</CardTitle>
          <CardDescription className="">          Showing total visitors for the last 6 months
@@ -57,7 +57,7 @@ export function HoverGlowSimpleBarChart() {
       <CardContent>
         <ChartContainer config={chartConfig}>
           <BarChart accessibilityLayer data={chartData}>
-            <CartesianGrid vertical={false} />
+            <CartesianGrid vertical={false}  strokeDasharray={5}/>
             <XAxis
               dataKey="month"
               tickLine={false}
@@ -67,7 +67,7 @@ export function HoverGlowSimpleBarChart() {
             />
             <ChartTooltip
               cursor={false}
-              content={<ChartTooltipContent hideLabel indicator="line"/>}
+              content={<ChartTooltipContent hideLabel indicator="dashed"/>}
             />
             <defs>
               <filter id= "glow" x = "-50%" y = "-50%" height="200%" width="200%">
@@ -94,10 +94,10 @@ export function HoverGlowSimpleBarChart() {
                   y={y}
                   width={width}
                   height={height}
-                  fill={isHover ? "var(--chart-4)" : "#262626"}
+                  fill={isHover ? "#AFAFFF" : "var(--primary)"}
                   filter={isHover ? "url(#glow)": "none"} 
-                  rx={10}
-                  ry={10}
+                  rx={4}
+                  ry={4}
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
                 />
@@ -116,10 +116,10 @@ export function HoverGlowSimpleBarChart() {
                   y={y}
                   width={width}
                   height={height}
-                  fill={isHover ? "var(--chart-1)" : "#444444"}
+                  fill={isHover ? "#5C5CFF" : "#444444"}
                   filter={isHover ? "url(#glow)": "none"} 
-                  rx={10}
-                  ry={10}
+                  rx={4}
+                  ry={4}
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
                 />

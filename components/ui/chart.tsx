@@ -34,7 +34,7 @@ function useChart() {
   return context
 }
 
-function  ChartContainer({
+function ChartContainer({
   id,
   className,
   children,

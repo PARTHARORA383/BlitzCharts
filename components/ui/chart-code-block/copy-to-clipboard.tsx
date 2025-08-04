@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const CopyToClipboard = ({code ,position}:{code : string , position ? : string}) => {
+export const CopyToClipboard = ({code ,position , width ,height}:{code : string , position ? : string , width ? : string , height ?: string}) => {
   const [isCopied, setIsCopied] = useState<true | false>(false)
 
 
@@ -19,7 +19,7 @@ export const CopyToClipboard = ({code ,position}:{code : string , position ? : s
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 384 512"
-          className={`w-5 h-5  fill-current cursor-pointer
+          className={` ${width  ?? "w-5 " } ${height ?? "h-5"} fill-current cursor-pointer
                ${isCopied ? "text-neutral-100" : "text-neutral-400 "}`}
           onClick={handleCopy}
         >

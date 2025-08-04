@@ -94,8 +94,8 @@ export default function HoverGlowHorizontalBarChart() {
 
                     fill={isHover ? "var(--chart-4)" : "#262626"}
                     filter={isHover ? "url(#glow)" : "none"}
-                    rx={10}
-                    ry={10}
+                    rx={4}
+                    ry={4}
                     onMouseEnter={() => setHoveredIndex(index)}
                     onMouseLeave={() => setHoveredIndex(null)}
                   />

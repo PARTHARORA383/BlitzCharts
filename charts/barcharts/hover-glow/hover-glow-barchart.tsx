@@ -88,13 +88,17 @@ export function HoverGlowBarChart() {
               axisLine={false}
               tickFormatter={(value) => value.slice(0, 3)}
             />
-            {/* <ChartTooltip
+            <ChartTooltip
             
               cursor={false}
-              content={<ChartTooltipContent   className="bg-border/100 border-2 border-transparent/20 shadow-lg py-2 "/>}
-            /> */}
-
-            <ChartTooltip content={CustomTooltip} cursor ={{opacity : 0}}/>
+              content={<ChartTooltipContent hideLabel 
+              indicator="dashed"/>  
+              
+              }
+              
+            />
+{/* 
+            <ChartTooltip content={CustomTooltip} cursor ={{opacity : 0}}/> */}
             <defs>
               <filter id= "glow" x = "-50%" y = "-50%" height="200%" width="200%">
                 <feGaussianBlur stdDeviation={3}
@@ -122,8 +126,8 @@ export function HoverGlowBarChart() {
                   height={height}
                   fill={isHover ? "var(--chart-4)" : "#262626"}
                   filter={isHover ? "url(#glow)": "none"} 
-                  rx={10}
-                  ry={10}
+                  rx={4}
+                  ry={4}
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
                 />

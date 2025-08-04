@@ -27,7 +27,7 @@ export default function ChartCodeDisplay({code , component , clicommand}:ChartCo
       <TabsContent value="code">
       <CodeBlock code={code}/>
       </TabsContent>
-      <TabsContent className='border-2 rounded-xl overflow-hidden max-h-[450px]' 
+      <TabsContent className='border-2 rounded-xl overflow-hidden max-h-[450px] z-50' 
       value="preview">{component}</TabsContent>
     </Tabs>
   )

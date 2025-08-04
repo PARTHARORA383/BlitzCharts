@@ -1,0 +1,19 @@
+{
+  "name": "gradient-mixed-barchart",
+  "type": "registry:ui",
+  "registryDependencies": ["chart"],
+  "dependencies": ["recharts"],
+  "devDependencies": [],
+  "tailwind": {},
+  "cssVars": {
+    "light": {},
+    "dark": {}
+  },
+  "files": [
+    {
+      "path": "gradient-mixed-barchart.tsx",
+      "content": "\"use client\"\n\nimport { TrendingUp } from \"lucide-react\"\nimport { Bar, BarChart, CartesianGrid, Rectangle, XAxis } from \"recharts\"\nimport type { LayoutType } from \"recharts/types/util/types\"\nimport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardFooter,\n  CardHeader,\n  CardTitle,\n} from \"@/components/ui/card\"\nimport {\n  ChartConfig,\n  ChartContainer,\n  ChartTooltip,\n  ChartTooltipContent,\n} from \"@/components/ui/chart\"\n\nexport const description = \"A bar chart with an active bar\"\n\nconst chartData = [\n  { browser: \"chrome\", visitors: 187 },\n  { browser: \"safari\", visitors: 200 },\n  { browser: \"firefox\", visitors: 275 },\n  { browser: \"edge\", visitors: 173 },\n  { browser: \"other\", visitors: 90 }\n]\n\nconst maxvalue = Math.max(...chartData.map((item) => item.visitors))\n\nconst NewChartData = chartData.map((item) => ({\n  ...item,\n  fill: item.visitors === maxvalue ? \"url(#indigoGradient)\" : \"var(--secondary)\"\n}))\n\nconst chartConfig = {\n  visitors: {\n    label: \"Visitors\"\n  },\n  chrome: {\n    label: \"Chrome\",\n    color: \"var(--chart-1)\"\n  },\n  safari: {\n    label: \"Deepseek\",\n    color: \"var(--chart-2)\"\n  },\n  firefox: {\n    label: \"Chatgpt\",\n    color: \"var(--chart-3)\"\n  },\n  edge: {\n    label: \"Claude\",\n    color: \"var(--chart-4)\"\n  },\n  other: {\n    label: \"Other\",\n    color: \"var(--chart-5)\"\n  }\n} satisfies ChartConfig\n\nexport function GradientMixedBarChart({ layout }: { layout?: LayoutType }) {\n  return (\n    <Card className=\"border-none rounded-none\">\n      <CardHeader>\n        <CardTitle>Bar Chart - Active</CardTitle>\n        <CardDescription>January - June 2024</CardDescription>\n      </CardHeader>\n      <CardContent>\n        <ChartContainer config={chartConfig}>\n          <BarChart accessibilityLayer layout={`${layout ?? \"horizontal\"}`} data={NewChartData}>\n            <CartesianGrid vertical={false} />\n            <XAxis\n              dataKey=\"browser\"\n              tickLine={false}\n              tickMargin={10}\n              axisLine={false}\n              tickFormatter={(value) =>\n                chartConfig[value as keyof typeof chartConfig]?.label\n              }\n            />\n            <defs>\n              <linearGradient id=\"indigoGradient\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\">\n                <stop offset=\"0%\" stopColor=\"#fff\" />\n                <stop offset=\"96%\" stopColor=\"#5C5CFF\" />\n              </linearGradient>\n            </defs>\n            <ChartTooltip\n              cursor={false}\n              content={<ChartTooltipContent hideLabel />}\n            />\n            <Bar\n              dataKey=\"visitors\"\n              strokeWidth={2}\n              radius={8}\n              activeIndex={2}\n              fill=\"var(--primary)\"\n            />\n          </BarChart>\n        </ChartContainer>\n      </CardContent>\n      <CardFooter className=\"flex-col items-start gap-2 text-sm\">\n        <div className=\"flex gap-2 leading-none font-medium\">\n          Trending up by 5.2% this month <TrendingUp className=\"h-4 w-4\" />\n        </div>\n        <div className=\"text-muted-foreground leading-none\">\n          Showing total visitors for the last 6 months\n        </div>\n      </CardFooter>\n    </Card>\n  )\n}",
+          "type": "registry:ui"
+    }
+  ]
+}
