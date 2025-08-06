@@ -13,50 +13,53 @@ import HoverGlowSimpleBarChartJson from "@/public/chart/hover-glow-simple-barcha
 import LiquidFillBarChartJson from "@/public/chart/liquid-fill-barchart.json"
 import GradientMixedBarChartJson from "@/public/chart/gradient-mixed-barchart.json"
 import { LiquidHoverBarChart } from "@/charts/barcharts/liquid-effect-bar/liquid-hover-barchart";
+import { LiquidFillHorizontalBarchart } from "@/charts/barcharts/liquid-effect-bar/liquid-fil-horizontal-barchart";
 export default function () {
 
   const baseUrl = `https://blitz-charts.vercel.app/chart`
   const clicommand = `npx shadcn@latest add ${baseUrl}`
 
 
-  return <div className="max-w-7xl min-w-2xl">
+  return <div className="max-w-9xl min-w-md">
 
-
-    <div className="text-2xl lg:ml-6 mt-12 text-foreground font-semibold">
-      Bar charts
+  <div className=" relative text-2xl lg:ml-6 lg:mt-6 lg:mr-6  text-foreground font-semibold  border-[1px] ">
+    <div className="h-full w-full bg-[var(--background-custom)] dark:bg-[var(--sidebar-custom)] relative text-muted-foreground">
+  <div
+    className="absolute inset-0 z-0 pointer-events-none"
+    style={{
+      backgroundImage: `
+        repeating-linear-gradient(22.5deg, transparent, transparent 2px, rgba(75, 85, 99, 0.06) 2px, rgba(75, 85, 99, 0.06) 3px, transparent 3px, transparent 8px),
+        repeating-linear-gradient(67.5deg, transparent, transparent 2px, rgba(107, 114, 128, 0.05) 2px, rgba(107, 114, 128, 0.05) 3px, transparent 3px, transparent 8px),
+        repeating-linear-gradient(112.5deg, transparent, transparent 2px, rgba(55, 65, 81, 0.04) 2px, rgba(55, 65, 81, 0.04) 3px, transparent 3px, transparent 8px),
+        repeating-linear-gradient(157.5deg, transparent, transparent 2px, rgba(31, 41, 55, 0.03) 2px, rgba(31, 41, 55, 0.03) 3px, transparent 3px, transparent 8px)
+      `,
+    }}
+  />
+    <p className="p-2 text-foreground">Bar charts</p>
     </div>
-    <div className="text-[17px] lg:ml-6 text-muted-foreground">
-      Integrate these cool bar chart in your project with just one click
-    </div>
+</div>
+    
 
-
-      <div className="lg:ml-6 mt-6 lg:mt-8"> 
-        <div className="text-[17px] font-medium text-foreground">Liquid Effect BarChart</div>
-        <div className="text-[17px] text-muted-foreground">The barcharts glow on hover and are perfect for your techy dashboards</div>
-      </div>
-        
-      
     <div className = "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 w-full pr-12 lg:ml-4 mb-8">
-      <ChartDisplay component={<LiquidFillBarchart />} children={<LiquidFillBarchart/>} jsoncontent={LiquidFillBarChartJson.files[0].content} charttype="Barchart - Liquid Fill" className="w-full lg:min-w-sm"  clicommand={`${clicommand}/liquid-fill-barchart.json`}  />
+      <ChartDisplay component={<LiquidFillBarchart />} children={<LiquidFillBarchart/>} jsoncontent={LiquidFillBarChartJson.files[0].content} charttype="Barchart - Liquid Fill" className="w-full "  clicommand={`${clicommand}/liquid-fill-barchart.json`}  />
 
-      <ChartDisplay component={<LiquidHoverBarChart />} children={<LiquidHoverBarChart/>} jsoncontent={LiquidFillBarChartJson.files[0].content} charttype="Barchart - Hover me" className=" w-full lg:min-w-sm"  clicommand={`${clicommand}/liquid-fill-barchart.json`}  />
+      <ChartDisplay component={<LiquidHoverBarChart />} children={<LiquidHoverBarChart/>} jsoncontent={LiquidFillBarChartJson.files[0].content} charttype="Barchart - Hover me" className=" w-full "  clicommand={`${clicommand}/liquid-fill-barchart.json`}  />
+      <ChartDisplay component={<LiquidFillHorizontalBarchart />} children={<LiquidFillHorizontalBarchart/>} jsoncontent={LiquidFillBarChartJson.files[0].content} charttype="Barchart - Horizontal Fill" className=" w-full "  clicommand={`${clicommand}/liquid-fill-barchart.json`}  />
     </div>
 
-      <div className="lg:ml-6 mt-6 lg:mt-8"> 
-        <div className="text-[17px] font-medium text-foreground">Hover Glow Barcharts</div>
-        <div className="text-[17px] text-muted-foreground">The barcharts glow on hover and are perfect for your techy dashboards</div>
-      </div>
+    
+
     <div className = "grid grid-cols-1 lg:grid-cols-3 gap-6 mt-8 w-full pr-12 lg:ml-4 mb-8">
 
 
-      <ChartDisplay component={<HoverGlowBarChart />} children={<HoverGlowBarChart />} jsoncontent={HoverGlowBarChartJson?.files[0].content} charttype="Barchart" className="lg:max-w-md" clicommand=
+      <ChartDisplay component={<HoverGlowBarChart />} children={<HoverGlowBarChart />} jsoncontent={HoverGlowBarChartJson?.files[0].content} charttype="Barchart" className="w-full" clicommand=
         {`${clicommand}/hover-glow-barchart.json`} />
 
 
-      <ChartDisplay component={<HoverGlowHorizontalBarChart />} children={<HoverGlowHorizontalBarChart />} jsoncontent={HoverGlowHorizontalBarChartJson?.files[0].content} charttype="Barchart - horizontal" className="lg:max-w-md" clicommand={`${clicommand}/hover-glow-horizontal-barchart.json`} />
+      <ChartDisplay component={<HoverGlowHorizontalBarChart />} children={<HoverGlowHorizontalBarChart />} jsoncontent={HoverGlowHorizontalBarChartJson?.files[0].content} charttype="Barchart - horizontal" className="w-full" clicommand={`${clicommand}/hover-glow-horizontal-barchart.json`} />
 
 
-      <ChartDisplay component={<HoverGlowSimpleBarChart />} children={<HoverGlowSimpleBarChart />} jsoncontent={HoverGlowSimpleBarChartJson.files[0].content} charttype="Barchart - simple" className="lg:max-w-md" clicommand= {`${clicommand}/hover-glow-simple-barchart.json`} />
+      <ChartDisplay component={<HoverGlowSimpleBarChart />} children={<HoverGlowSimpleBarChart />} jsoncontent={HoverGlowSimpleBarChartJson.files[0].content} charttype="Barchart - simple" className="w-full" clicommand= {`${clicommand}/hover-glow-simple-barchart.json`} />
 
 
 
@@ -64,10 +67,10 @@ export default function () {
     </div>
 
 
-         <div className="lg:ml-6 lg:mt-12"> 
+         {/* <div className="lg:ml-6 lg:mt-12"> 
         <div className="text-[17px] font-medium text-foreground">Gradient Barcharts</div>
         <div className="text-[17px] text-muted-foreground">The barcharts have a gradient effect on the one with highest value</div>
-      </div>
+      </div> */}
 
         <div className = "grid grid-cols-1 lg:grid-cols-3 gap-6 mt-8 w-full pr-12 lg:ml-4 mb-8">
 

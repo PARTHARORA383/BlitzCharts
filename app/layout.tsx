@@ -29,7 +29,7 @@ export default function RootLayout({
             min-h-screen 
           flex items-center justify-center`}
       >
-        <div className="w-full max-w-[1920px] px-4">
+        <div className="w-full max-w-[1920px] ">
 
         {children}
         </div>

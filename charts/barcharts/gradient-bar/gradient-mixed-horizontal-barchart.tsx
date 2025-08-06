@@ -39,7 +39,7 @@ const maxvalue = Math.max(...chartData.map((item) => item.visitors))
 
 const NewChartData = chartData.map((item) => ({
   ...item,
-  fill: item.visitors === maxvalue ? "url(#indigoGradient)" : "url(#greyGradient)",
+  fill: item.visitors === maxvalue ? "url(#indigoGradient)" : "var(--secondary)",
 }))
 
 const chartConfig = {
@@ -83,10 +83,7 @@ export function GradientMixedHorizontalBarChart({ layout = "vertical" }: { layou
 
             {/* Gradients */}
             <defs>
-              <linearGradient id="greyGradient" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="4%" stopColor="#404040" />
-                <stop offset="96%" stopColor="#262626" />
-              </linearGradient>
+    
               <linearGradient id="indigoGradient" x1="0" y1="0" x2="1" y2="0">
                 <stop offset="0%" stopColor="#fff" />
                 <stop offset="96%" stopColor="#5C5CFF" />

@@ -32,13 +32,17 @@ export default function CodeBlock({ code }: { code: string }) {
 export function CLIBlock ({text} : {text : string}){
 
   return(
-    <div className=" relative border-2 rounded-md bg-border/40 ">
+    <div className=" relative border-[3px] border-dashed shadow-sm rounded-md bg-border/40 ">
 
       <CopyToClipboard code={text} position="top-1.5 right-8 " width="w-4.5" height="h-4.5"/>
       <div className="w-full relative  border-b-2 text-muted-foreground pl-2 pt-2 pb-2 text-sm ">CLI
       </div>
-      <div className="text-foreground max-w-lg pl-4 pt-2 pb-2">
-        {text}
+      <div className="text-foreground max-w-xl pl-4 pt-2 pb-2 whitespace-pre-wrap">
+       {text.split('\n').map((line , index)=>(
+        <div key={index} >
+          {line}
+        </div>
+       ))}
       </div>
 
     </div>

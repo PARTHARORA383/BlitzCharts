@@ -4,19 +4,28 @@
 import Link from "next/link"
 import { ThemeToggle } from "@/components/ui/toglebutton"
 import { Button } from "@/components/ui/button"
-import { Github } from "lucide-react"
+import { Github, Sparkle } from "lucide-react"
 import { blitzFont } from "./typography"
+import {motion } from 'motion/react'
+import { Sparkles } from "./pattern"
 
 export function Topbar() {
+  
+const balls = Array.from({ length: 12 })
+
   return (
     <header className=" sticky top-0 z-50 w-full border-b-2 border-border/40 bg-[var(--background-custom)]">
-      <div className=" flex items-center justify-center px-4 py-3">
+ 
+ 
+      <Sparkles/>
+
+      <div className=" relative flex items-center justify-center px-4 py-3">
         {/* Left: Brand */}
         <Link href="/" className={` ${blitzFont.className} text-2xl font-bold tracking-tight`
         }>
           BlitzCharts
         </Link>
-          
+        
         {/* Right: GitHub + Theme Toggle */}
         <div className="absolute right-8 flex items-center gap-2">
           <Button

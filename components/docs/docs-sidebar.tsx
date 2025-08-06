@@ -3,9 +3,7 @@
 import { cn } from "@/lib/utils";
 import { Sidebar, SidebarContent, SidebarGroup, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarSeparator } from "../ui/sidebar";
 import { usePathname } from "next/navigation";
-import Link from "next/link";
-import { blitzFont } from "../ui/typography";
-import path from "path";
+
 
 const GettingStarted = [
   {
@@ -25,18 +23,6 @@ const Charts = [
   {
     title: "Barcharts",
     url: "barcharts"
-  },
-  {
-    title: "AreaCharts",
-    url: "barcharts"
-  },
-  {
-    title: "PieCharts",
-    url: "barcharts"
-  },
-  {
-    title: "Histograms",
-    url: "barcharts"
   }
 ]
 
@@ -50,7 +36,8 @@ export function DocsSidebar() {
   return (
 
     <Sidebar className="border-none ">
-      <SidebarContent className="lg:pl-12 pt-20 bg-[var(--background-custom)] dark:bg-[var(--sidebar-custom)]">
+    
+      <SidebarContent className=" relative lg:pl-12 lg:pt-20 bg-[var(--background-custom)] dark:bg-[var(--sidebar-custom)]">
 
         <SidebarHeader> </SidebarHeader>
         <SidebarGroup>
@@ -91,8 +78,11 @@ export function DocsSidebar() {
 
           </SidebarMenu>
         </SidebarGroup>
+
+    
       </SidebarContent>
 
+          
     </Sidebar>
   )
 }

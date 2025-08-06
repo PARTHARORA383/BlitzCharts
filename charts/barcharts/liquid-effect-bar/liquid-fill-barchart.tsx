@@ -91,10 +91,10 @@ function LiquidFillBarchart() {
                   initial={{ y: "100%" }}
                   animate={{ y: "0%" }}
                   transition={{
-                    duration: 5,
+                    duration: 4,
                     repeat: Infinity,
                     repeatType: "reverse",
-                    ease: "easeInOut",
+                    ease: "linear",
                   }}
                   width="200%"
                   height="200%"

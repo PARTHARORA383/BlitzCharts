@@ -1,8 +1,8 @@
 "use client"
 
 import { TrendingUp } from "lucide-react"
-import { Bar, BarChart, XAxis, YAxis, CartesianGrid } from "recharts"
-import { useState } from "react"
+import { Bar, BarChart, XAxis, YAxis } from "recharts"
+import {motion} from 'motion/react'
 import {
   Card,
   CardContent,
@@ -36,13 +36,32 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
-export default function HoverGlowHorizontalBarChart() {
-  const [hoveredIndex, setHoveredIndex] = useState(null);
+
+export function RoundedBarBackground(props: any){
+const { x, y, width, height } = props
+return (
+<>
+  <rect
+  x = {x}
+  y = {y}
+  width={width}
+  height={height}
+  rx= {5}
+  ry = {5}
+  fill="var(--secondary)"
+  />
+  
+  </>
+)
+  
+}
+
+export function LiquidFillHorizontalBarchart(){
   return (
-    <Card className="rounded-none border-none">
+    <Card className="border-none rounded-none">
       <CardHeader>
         <CardTitle>Bar Chart - Horizontal</CardTitle>
-        <CardDescription>Showing total visitors for the last 6 months</CardDescription>
+        <CardDescription>January - June 2024</CardDescription>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
@@ -54,6 +73,28 @@ export default function HoverGlowHorizontalBarChart() {
               left: -20,
             }}
           >
+
+            <defs>
+              <pattern 
+              id  = "rising-water"
+              width= "200%"
+              height= "200%"
+              patternUnits="userSpacceOnUse">
+              <motion.rect
+              initial = {{x : "-50%"}} 
+              animate = {{x : "100%"}}
+              transition={{duration: 4 , ease : "linear" ,
+                repeat : Infinity,
+                repeatType   : "reverse",
+                repeatDelay : 4
+              }}
+                  width="200%"
+                  height="200%"
+                  fill="#5C5CFF"/>
+
+              </pattern>
+            </defs>
+
             <XAxis type="number" dataKey="desktop" hide />
             <YAxis
               dataKey="month"
@@ -65,56 +106,20 @@ export default function HoverGlowHorizontalBarChart() {
             />
             <ChartTooltip
               cursor={false}
-              content={<ChartTooltipContent hideLabel indicator="line" />}
+              content={<ChartTooltipContent hideLabel />}
             />
-            <defs>
-              <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-                <feGaussianBlur stdDeviation="3" result="coloredBlur" />
-                <feMerge>
-                  <feMergeNode in="coloredBlur" />
-                  <feMergeNode in="SourceGraphic" />
-                </feMerge>
-              </filter>
-            </defs>
-
-            <Bar
-              dataKey="desktop"
-              radius={2}
-
-              shape={(props: any) => {
-                const { x, y, width, height, index } = props;
-                const isHover = hoveredIndex === index;
-                return (
-
-                  <rect
-                    x={x}
-                    y={y}
-                    width={width}
-                    height={height}
-
-                    fill={isHover ? "#AFAFFF" : "var(--secondary)"}
-                    filter={isHover ? "url(#glow)" : "none"}
-                    rx={4}
-                    ry={4}
-                    onMouseEnter={() => setHoveredIndex(index)}
-                    onMouseLeave={() => setHoveredIndex(null)}
-                  />
-                );
-              }}
-            />
+            <Bar dataKey="desktop" fill="url(#rising-water)" radius={5} background = {<RoundedBarBackground/>}/>
           </BarChart>
         </ChartContainer>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-2 text-md">
+      <CardFooter className="flex-col items-start gap-2 text-sm">
         <div className="flex gap-2 leading-none font-medium">
           Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
         </div>
         <div className="text-muted-foreground leading-none">
-        January - June 2025
+          Showing total visitors for the last 6 months
         </div>
       </CardFooter>
     </Card>
   )
 }
-
-

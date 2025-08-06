@@ -124,7 +124,7 @@ export function HoverGlowBarChart() {
                   y={y}
                   width={width}
                   height={height}
-                  fill={isHover ? "var(--chart-4)" : "#262626"}
+                  fill={isHover ? "#5C5CFF" : "var(--secondary)"}
                   filter={isHover ? "url(#glow)": "none"} 
                   rx={4}
                   ry={4}
