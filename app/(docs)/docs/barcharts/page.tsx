@@ -14,7 +14,7 @@ import LiquidFillBarChartJson from "@/public/chart/liquid-fill-barchart.json"
 import GradientMixedBarChartJson from "@/public/chart/gradient-mixed-barchart.json"
 import { LiquidHoverBarChart } from "@/charts/barcharts/liquid-effect-bar/liquid-hover-barchart";
 import { LiquidFillHorizontalBarchart } from "@/charts/barcharts/liquid-effect-bar/liquid-fil-horizontal-barchart";
-import { ChartPieSimple } from "@/charts/piecharts/testing";
+
 
 export default function BarchartHome () {
 
