@@ -12,8 +12,8 @@ const GettingStarted = [
 
   },
   {
-    title: "Prerequisites",
-    url: "prerequisites",
+    title: "Installation",
+    url: "installation",
 
   },
 
@@ -23,6 +23,10 @@ const Charts = [
   {
     title: "Barcharts",
     url: "barcharts"
+  },
+  {
+    title: "Piecharts",
+    url: "piecharts"
   }
 ]
 

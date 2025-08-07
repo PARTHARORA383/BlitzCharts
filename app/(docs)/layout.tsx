@@ -12,7 +12,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
       <Topbar />
 
-      <div className="lg:mr-12">
+      <div className="lg:mr-12 ">
           
 
         <SidebarProvider>

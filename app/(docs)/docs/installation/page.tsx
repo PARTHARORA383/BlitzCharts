@@ -1,5 +1,5 @@
 import { CLIBlock } from "@/components/ui/chart-code-block/code-block";
-import Link from "next/link";
+
 
 export default function Prerequisites() {
   return (
