@@ -1,6 +1,6 @@
 {
   "name": "hover-glow-simple-barchart",
-  "type": "component",
+  "type": "registry:ui",
   "registryDependencies": [
     "card",
     "chart-container",

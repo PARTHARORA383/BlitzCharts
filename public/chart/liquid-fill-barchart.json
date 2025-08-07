@@ -1,6 +1,6 @@
 {
   "name": "liquid-fill-barchart",
-  "type": "component",
+  "type": "registry:ui",
   "registryDependencies": [
     "card",
     "chart-container",
