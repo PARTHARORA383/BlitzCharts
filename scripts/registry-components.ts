@@ -50,7 +50,7 @@ export const components: ComponentProps[] = [
       "../charts/barcharts/liquid-effect-bar/liquid-fill-barchart"
     ),
     registryDependencies: ["chart"],
-    dependencies: ["recharts"],
+    dependencies: ["recharts , motion"],
   }
   ,
 

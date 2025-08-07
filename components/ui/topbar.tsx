@@ -19,7 +19,7 @@ const balls = Array.from({ length: 12 })
  
       <Sparkles/>
 
-      <div className=" relative flex items-center justify-center px-4 py-3">
+      <div className=" relative flex items-center  lg:justify-center px-4 py-3">
         {/* Left: Brand */}
         <Link href="/" className={` ${blitzFont.className} text-2xl font-bold tracking-tight`
         }>
@@ -27,7 +27,7 @@ const balls = Array.from({ length: 12 })
         </Link>
         
         {/* Right: GitHub + Theme Toggle */}
-        <div className="absolute right-8 flex items-center gap-2">
+        <div className="absolute right-2 lg:right-8 flex items-center gap-2">
           <Button
             asChild
             variant="outline"
