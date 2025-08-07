@@ -1,12 +1,14 @@
 {
   "name": "liquid-fill-barchart",
   "type": "registry:ui",
-  "registryDependencies": [
-    "card",
-    "chart-container",
-    "chart-tooltip",
-    "chart-tooltip-content"
-  ],
+"registryDependencies": ["chart"],
+  "dependencies": ["recharts , motion"],
+  "devDependencies": [],
+  "tailwind": {},
+  "cssVars": {
+    "light": {},
+    "dark": {}
+  },
   "files": [
     {
       "path": "liquid-fill-barchart.tsx",

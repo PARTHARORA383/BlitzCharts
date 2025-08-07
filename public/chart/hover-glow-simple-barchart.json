@@ -1,12 +1,14 @@
 {
   "name": "hover-glow-simple-barchart",
   "type": "registry:ui",
-  "registryDependencies": [
-    "card",
-    "chart-container",
-    "chart-tooltip",
-    "chart-tooltip-content"
-  ],
+  "registryDependencies": ["chart"],
+  "dependencies": ["recharts"],
+  "devDependencies": [],
+  "tailwind": {},
+  "cssVars": {
+    "light": {},
+    "dark": {}
+  },
   "files": [
     {
       "path": "hover-glow-simple-barchart.tsx",
