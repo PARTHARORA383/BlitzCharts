@@ -2,7 +2,7 @@
   "name": "liquid-fill-barchart",
   "type": "registry:ui",
 "registryDependencies": ["chart"],
-  "dependencies": ["recharts , motion"],
+  "dependencies": ["recharts" , "motion"],
   "devDependencies": [],
   "tailwind": {},
   "cssVars": {
