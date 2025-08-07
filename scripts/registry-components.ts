@@ -53,6 +53,17 @@ export const components: ComponentProps[] = [
     dependencies: ["recharts , motion"],
   }
   ,
+  
+  {
+    name: "intersection-areachart",
+    path: path.join(
+      __dirname,
+      "../charts/areachart/intersection-areachart"
+    ),
+    registryDependencies: ["chart"],
+    dependencies: ["recharts , motion"],
+  }
+  ,
 
 
 ];

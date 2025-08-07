@@ -14,6 +14,7 @@ import LiquidFillBarChartJson from "@/public/chart/liquid-fill-barchart.json"
 import GradientMixedBarChartJson from "@/public/chart/gradient-mixed-barchart.json"
 import { LiquidHoverBarChart } from "@/charts/barcharts/liquid-effect-bar/liquid-hover-barchart";
 import { LiquidFillHorizontalBarchart } from "@/charts/barcharts/liquid-effect-bar/liquid-fil-horizontal-barchart";
+import { WovenPattern } from "@/components/ui/pattern";
 
 
 export default function BarchartHome () {
@@ -26,17 +27,7 @@ export default function BarchartHome () {
 
     <div className=" relative text-2xl lg:ml-6 lg:mt-6 mt-6 mr-6 lg:mr-6  text-foreground font-semibold  border-[1px] ">
       <div className="h-full w-full bg-[var(--background-custom)] dark:bg-[var(--sidebar-custom)] relative text-muted-foreground ">
-        <div
-          className="absolute inset-0 z-0 pointer-events-none"
-          style={{
-            backgroundImage: `
-        repeating-linear-gradient(22.5deg, transparent, transparent 2px, rgba(75, 85, 99, 0.06) 2px, rgba(75, 85, 99, 0.06) 3px, transparent 3px, transparent 8px),
-        repeating-linear-gradient(67.5deg, transparent, transparent 2px, rgba(107, 114, 128, 0.05) 2px, rgba(107, 114, 128, 0.05) 3px, transparent 3px, transparent 8px),
-        repeating-linear-gradient(112.5deg, transparent, transparent 2px, rgba(55, 65, 81, 0.04) 2px, rgba(55, 65, 81, 0.04) 3px, transparent 3px, transparent 8px),
-        repeating-linear-gradient(157.5deg, transparent, transparent 2px, rgba(31, 41, 55, 0.03) 2px, rgba(31, 41, 55, 0.03) 3px, transparent 3px, transparent 8px)
-      `,
-          }}
-        />
+        <WovenPattern/>
         <p className="p-2 text-foreground">Bar charts</p>
       </div>
     </div>

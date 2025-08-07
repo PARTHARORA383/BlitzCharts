@@ -25,6 +25,10 @@ const Charts = [
     url: "barcharts"
   },
   {
+    title: "Areacharts",
+    url: "areacharts"
+  },
+  {
     title: "Piecharts",
     url: "piecharts"
   }
