@@ -2,32 +2,32 @@
 //@ts-ignore
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 //@ts-ignore
-import { vscDarkPlus , duotoneLight} from "react-syntax-highlighter/dist/esm/styles/prism";
+import { vscDarkPlus , atomOneLight } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 import { CopyToClipboard } from "./copy-to-clipboard";
 import { useTheme } from "next-themes";
 
 
 export default function CodeBlock({ code }: { code: string }) {
-
+ 
   const{theme , setTheme} = useTheme();
 
-  
+
   return (
     <div className=" relative max-h-[450px] overflow-scroll  rounded-lg scrollbar-hide">
 
     <SyntaxHighlighter
       language="tsx"
-      style={`${theme}duotoneLight`}
+      style={theme === "dark" ? vscDarkPlus : atomOneLight}
       wrapLongLines
       customStyle={{
         borderRadius: "0.5rem",
       }}   
        codeTagProps={{
-    style: { fontSize: "0.95rem" } // Tailwind equivalent of text-xl
+    style: { fontSize: "0.95rem" } 
   }}
       >
-      {code} {/* Important: it’s a double string, you must parse it */}
+      {code} 
     </SyntaxHighlighter>
 
     <CopyToClipboard code={code}/>
