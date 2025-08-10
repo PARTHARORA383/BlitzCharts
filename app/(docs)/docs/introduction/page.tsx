@@ -6,7 +6,7 @@ const BlitzIntro = () => {
   return (<>
   <div className="flex flex-col">
 
-    <div className="max-w-4xl mx-12 px-6 py-8 mt-8">
+    <div className="max-w-4xl lg:mx-12 lg:px-6 py-8 px-2  mt-8">
       <h1 className="text-3xl font-semibold text-shadow-popover"> Introduction</h1>
 
       <p className="text-[17px] text-foreground/80 mb-6 mt-6">

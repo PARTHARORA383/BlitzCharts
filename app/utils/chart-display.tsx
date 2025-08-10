@@ -17,17 +17,29 @@ export default function ChartDisplay({children , charttype ,className , jsoncont
   const code = jsoncontent;
 
 
-  return <div className={cn("relative bg-border/0 border-[2px]  border-muted shadow-xl rounded-lg pt-10 overflow-hidden max-w-xl ",
+  return <div className={cn("relative bg-border/0 border-[2px]  border-muted shadow-xl rounded-lg  overflow-hidden ",
     
     className
   )}>
-    
-    <div className="absolute top-2 left-4">{charttype}</div>
-    <div className="absolute top-1.5 right-4">
-      <ChartCodeSheet clicommand={clicommand} component = {component}  name = {charttype} code={code}>
-    <Button size = "sm" className="h-7 bg-transparent text-foreground/90 cursor-pointer text-[13px] transition-colors duration-200 border border-muted-foreground  hover:bg-transparent hover:border-accent-foreground"> View Code</Button>
-      </ChartCodeSheet>
-    </div>
+<div className="flex items-center justify-between gap-2 px-4 py-2 ">
+  <span className="truncate">{charttype}</span>
+
+  <ChartCodeSheet
+    clicommand={clicommand}
+    component={component}
+    name={charttype}
+    code={code}
+  >
+    <Button
+      variant="outline"
+      size="sm"
+      className="h-[clamp(1.5rem,1.8vw,1.75rem)] px-2 font-medium"
+    >
+      View Code
+    </Button>
+  </ChartCodeSheet>
+</div>
+
 
 
 

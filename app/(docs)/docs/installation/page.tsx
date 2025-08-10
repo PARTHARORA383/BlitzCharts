@@ -5,7 +5,7 @@ export default function Prerequisites() {
   return (
     <div className="flex flex-col mb-8">
       {/* Step 1 */}
-      <div className="max-w-3xl mx-12 px-6 py-8 flex items-start gap-4">
+      <div className="max-w-3xl lg:mx-12 lg:px-6 px-2 py-8 flex items-start gap-4">
 
         <div className="flex-1">
           <h1 className="text-3xl font-semibold text-shadow-popover">Installation</h1>
@@ -16,7 +16,7 @@ export default function Prerequisites() {
       </div>
 
       {/* Step 2 */}
-      <div className="max-w-3xl mx-12 px-6 flex items-start gap-4">
+      <div className="max-w-3xl lg:mx-12 lg:px-6 px-2 flex items-start gap-4">
         <div className="text-2xl font-bold text-muted-foreground">
         1.
 
@@ -52,7 +52,7 @@ export default function Prerequisites() {
       </div>
 
       {/* Step 3 */}
-      <div className="max-w-3xl mx-12 px-6 mt-8 flex items-start gap-4">
+      <div className="max-w-3xl lg:mx-12 lg:px-6 px-2 mt-8 flex items-start gap-4">
         <div className="text-2xl font-bold text-muted-foreground">2.</div>
         <div className="flex-1">
           <h1 className="text-2xl font-semibold text-shadow-popover">Install Dependencies</h1>
@@ -64,7 +64,7 @@ export default function Prerequisites() {
       </div>
 
       {/* Step 4 */}
-      <div className="max-w-3xl mx-12 px-6 mt-8 flex items-start gap-4">
+      <div className="max-w-3xl lg:mx-12 lg:px-6 px-2 mt-8 flex items-start gap-4">
         <div className="text-2xl font-bold text-muted-foreground">3.</div>
         <div className="flex-1">
           <h1 className="text-2xl font-semibold text-shadow-popover">Initialize Shadcn UI</h1>
@@ -76,7 +76,7 @@ export default function Prerequisites() {
       </div>
 
       {/* Step 5 */}
-      <div className="max-w-3xl mx-12 px-6 mt-8 flex items-start gap-4">
+      <div className="max-w-3xl lg:mx-12 lg:px-6 px-2 mt-8 flex items-start gap-4">
         <div className="text-2xl font-bold text-muted-foreground">4.</div>
         <div className="flex-1">
           <h1 className="text-2xl font-semibold text-shadow-popover">Add Shadcn components</h1>
@@ -88,7 +88,7 @@ export default function Prerequisites() {
       </div>
 
       {/* Step 6 */}
-      <div className="max-w-3xl mx-12 px-6 mt-8 flex items-start gap-4">
+      <div className="max-w-3xl lg:mx-12 lg:px-6 px-2 mt-8 flex items-start gap-4">
         <div className="text-2xl font-bold text-muted-foreground">5.</div>
         <div className="flex-1">
           <h1 className="text-2xl font-semibold text-shadow-popover">You are all set</h1>

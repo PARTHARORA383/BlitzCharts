@@ -62,6 +62,34 @@ export const components: ComponentProps[] = [
     ),
     registryDependencies: ["chart"],
     dependencies: ["recharts , motion"],
+  },
+  {
+    name: "splitline-areachart",
+    path: path.join(
+      __dirname,
+      "../charts/areachart/splitline-areachart"
+    ),
+    registryDependencies: ["chart"],
+    dependencies: ["recharts , motion"],
+  },
+  {
+    name: "dotted-disperse-areachart",
+    path: path.join(
+      __dirname,
+      "../charts/areachart/dotted-disperse-areachart"
+    ),
+    registryDependencies: ["chart"],
+    dependencies: ["recharts , motion"],
+  }
+  ,
+  {
+    name: "smooth-gradient-areachart",
+    path: path.join(
+      __dirname,
+      "../charts/areachart/smooth-gradient-areachart"
+    ),
+    registryDependencies: ["chart"],
+    dependencies: ["recharts , motion"],
   }
   ,
 
