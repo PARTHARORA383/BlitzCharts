@@ -25,12 +25,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className="">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased dark:bg-[var(--background-custom)] 
-            min-h-screen 
-          flex items-center justify-center`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiasedW
+          
+          flex items-center justify-center bg-[var(--background)]`}
       >
-        <div className="w-full max-w-[1920px] ">
-
+        <div className="w-full">
         {children}
         </div>
       </body>

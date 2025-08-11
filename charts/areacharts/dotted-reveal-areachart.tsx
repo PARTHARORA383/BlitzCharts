@@ -1,11 +1,9 @@
 
-
 "use client"
 
 import { TrendingUp } from "lucide-react"
 import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
 import { motion } from "motion/react"
-
 import {
   Card,
   CardContent,
@@ -22,33 +20,57 @@ import {
 } from "@/components/ui/chart"
 import { useState } from "react"
 
-export const description = "An area chart with gradient fill"
+export const description = "A simple area chart"
 
 const chartData = [
-  { month: "January", desktop: 186, mobile: 80 },
-  { month: "February", desktop: 305, mobile: 200 },
-  { month: "March", desktop: 237, mobile: 120 },
-  { month: "April", desktop: 73, mobile: 190 },
-  { month: "May", desktop: 209, mobile: 130 },
-  { month: "June", desktop: 214, mobile: 140 },
+  { month: "January", desktop: 186 },
+  { month: "February", desktop: 305 },
+  { month: "March", desktop: 237 },
+  { month: "April", desktop: 73 },
+  { month: "May", desktop: 209 },
+  { month: "June", desktop: 214 },
 ]
 
 const chartConfig = {
   desktop: {
     label: "Desktop",
-    color: "var(--foreground)",
-  }
+    color: "var(--chart-1)",
+  },
 } satisfies ChartConfig
 
-export function SmoothGradientAreaChart() {
+export function DottedRevealAreaChart() {
 
   const [hovered, setHovered] = useState(false)
 
+  const dots = []
+  const rows = 6
+  const cols = 15
+  const spacing = 20
+  const dotRadius = 3
+
+
+  for (let row = 0 ; row< rows ; row++){
+    for(let col = 0 ; col < cols ; col++){
+      const x = col* spacing
+      const y = row* spacing
+      dots.push({
+        id: `${row}-${col}`,
+        cx: col * spacing + 10,
+        cy: row * spacing + 10,}
+      )
+  
+    }
+  }
+
+
   return (
-    <Card
-    className="border-none rounded-none"
-    onMouseEnter={() => setHovered(true)}
-    onMouseLeave={() => setHovered(false)}>
+
+    <>
+   
+
+
+    <Card onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false) }>
       <CardHeader>
         <CardTitle>Area Chart</CardTitle>
         <CardDescription>
@@ -64,7 +86,7 @@ export function SmoothGradientAreaChart() {
               left: 12,
               right: 12,
             }}
-          >
+            >
             <CartesianGrid vertical={false} />
             <XAxis
               dataKey="month"
@@ -72,39 +94,50 @@ export function SmoothGradientAreaChart() {
               axisLine={false}
               tickMargin={8}
               tickFormatter={(value) => value.slice(0, 3)}
-            />
-            <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
+              />
+            <ChartTooltip
+              cursor={false}
+              content={<ChartTooltipContent indicator="line" />}
+              />
+             <defs>
+  <pattern
+  width={cols * spacing}
+  height={rows * spacing}
+  id="dots"
+  patternUnits="userSpaceOnUse"
+>
+  {dots.map((dot) => {
+    const [row, col] = dot.id.split("-").map(Number)
+  const delay = row * cols * 0.02 + col * 0.02
 
-            <defs>
-              <motion.linearGradient id="fillDesktop" 
-                x = "0"  y = "0" x2 = "1" y2 = "0"
-              >
-                <motion.stop
-                  initial={{ offset: "0%" }}
-                  animate={{ offset: hovered ? "5%" : "0%" }}
-                  transition={{ duration: 0.3  , ease: "linear" }}
-                  stopColor="var(--color-desktop)"
-                  stopOpacity={0.8}
-                />
-                <motion.stop
-                  initial={{ offset: "0%" }}
-                  animate={{ offset: hovered ? "95%" : "0%" }}
-                      transition={{ duration: 0.3  , ease: "linear" }}
-                  stopColor="var(--color-desktop)"
-                  stopOpacity={0.1}
-                />
-              </motion.linearGradient>
-       
-            </defs>
-        
+    return (
+      <motion.circle
+        key={dot.id}
+        initial={{ r: 3 }}
+        animate={{
+          fill: hovered ? "var(--foreground)" : "var(--accent)",
+        }}
+        transition={{
+          duration: 0.3,
+          ease: "linear",
+          delay
+        }}
+        cx={dot.cx}
+        cy={dot.cy}
+        r={dotRadius}
+      />
+    )
+  })}
+</pattern>
+    </defs>
+
             <Area
               dataKey="desktop"
               type="natural"
-              fill="url(#fillDesktop)"
+              fill="url(#dots)"
               fillOpacity={0.4}
-              stroke="var(--color-desktop)"
-              stackId="a"
-            />
+              stroke="var(--foreground)"
+              />
           </AreaChart>
         </ChartContainer>
       </CardContent>
@@ -121,7 +154,6 @@ export function SmoothGradientAreaChart() {
         </div>
       </CardFooter>
     </Card>
+              </>
   )
 }
-
-

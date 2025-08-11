@@ -14,9 +14,14 @@ export function ThemeToggle() {
 
   if (!mounted) return null
 
+    const isDark = theme?.endsWith("-dark")
+  const baseTheme = theme?.replace("-light", "").replace("-dark", "")
+
   return (
-    <Button variant="outline" size="icon" onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>
-      {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+    <Button variant="outline" size="icon" onClick={() =>
+    setTheme(`${baseTheme}-${isDark ? "light" : "dark"}`)}
+  >
+      {theme?.endsWith("-light") ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
       <span className="sr-only">Toggle theme</span>
     </Button>
   )

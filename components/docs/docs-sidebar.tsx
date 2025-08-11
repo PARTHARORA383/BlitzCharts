@@ -21,12 +21,12 @@ const GettingStarted = [
 
 const Charts = [
   {
-    title: "Barcharts",
-    url: "barcharts"
-  },
-  {
     title: "Areacharts",
     url: "areacharts"
+  },
+  {
+    title: "Barcharts",
+    url: "barcharts"
   },
   {
     title: "Piecharts",
@@ -45,7 +45,7 @@ export function DocsSidebar() {
 
     <Sidebar className="border-none ">
     
-      <SidebarContent className=" relative lg:pl-12 lg:pt-20 bg-[var(--background-custom)] dark:bg-[var(--sidebar-custom)]">
+      <SidebarContent className=" relative lg:pl-12 pt-20 pl-6 lg:pt-20 bg-[var(--background)]">
 
         <SidebarHeader> </SidebarHeader>
         <SidebarGroup>

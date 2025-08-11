@@ -8,13 +8,14 @@ import { Github, Sparkle } from "lucide-react"
 import { blitzFont } from "./typography"
 import {motion } from 'motion/react'
 import { Sparkles } from "./pattern"
+import { ThemeSelector } from "./theme-selector"
 
 export function Topbar() {
   
 const balls = Array.from({ length: 12 })
 
   return (
-    <header className=" sticky top-0 z-50 w-full border-b-2 border-border/40 bg-[var(--background-custom)]">
+    <header className=" sticky top-0 z-50 w-full border-b-2 border-border/40 bg-[var(--background)]">
  
  
       <Sparkles/>
@@ -28,6 +29,9 @@ const balls = Array.from({ length: 12 })
         
         {/* Right: GitHub + Theme Toggle */}
         <div className="absolute right-2 lg:right-8 flex items-center gap-2">
+
+        <ThemeSelector/>
+
           <Button
             asChild
             variant="outline"
