@@ -28,10 +28,7 @@ const Charts = [
     title: "Barcharts",
     url: "barcharts"
   },
-  {
-    title: "Piecharts",
-    url: "piecharts"
-  }
+
 ]
 
 
