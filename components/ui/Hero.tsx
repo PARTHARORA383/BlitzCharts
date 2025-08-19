@@ -144,9 +144,9 @@ function Center() {
       </div>
       <div className="flex justify-center items-center mt-4 ">
         <div className="-translate-x-8 mt-4">
-          <Link href={"/docs/areacharts"}>
+          <a href={"/docs/areacharts"}>
             <ButtonUiVerse height={8} width={8} text={"Documentation"} />
-          </Link>
+          </a>
         </div>
         {/* <a
           href="https://github.com/your-repo"
