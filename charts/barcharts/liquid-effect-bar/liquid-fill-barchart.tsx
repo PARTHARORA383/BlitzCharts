@@ -42,8 +42,6 @@ function RoundedBarBackground(props: any) {
   const { x, y, width, height } = props
   return (
     <>
-
-
       <rect
         x={x}
         y={y}
@@ -60,8 +58,10 @@ function RoundedBarBackground(props: any) {
 }
 
 function LiquidFillBarchart() {
+
+
   return (
-    <Card className="border-none rounded-none">
+    <Card className="border-none rounded-none font-sans">
 
 
       <CardHeader>

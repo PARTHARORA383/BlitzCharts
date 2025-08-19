@@ -9,7 +9,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   return (
 
-    <ThemeProvider attribute="class" defaultTheme="default-dark" enableSystem>
+    <ThemeProvider attribute="class" enableSystem>
       <Topbar />
 
       <div className=" mr-4 md:mr-8 lg:mr-16">

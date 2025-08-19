@@ -14,11 +14,11 @@ export default function CodeBlock({ code }: { code: string }) {
 
 
   return (
-    <div className=" relative max-h-[450px] overflow-scroll  rounded-lg scrollbar-hide">
+    <div className=" relative max-h-[450px] overflow-y-scroll overflow-x-scroll rounded-lg scrollbar-hide mx-auto ">
 
     <SyntaxHighlighter
       language="tsx"
-      style={theme === "dark" ? vscDarkPlus : atomOneLight}
+      style={theme?.endsWith("dark") ? vscDarkPlus : atomOneLight}
       wrapLongLines
       customStyle={{
         borderRadius: "0.5rem",
@@ -43,7 +43,7 @@ export function CLIBlock ({text} : {text : string}){
       <CopyToClipboard code={text} position="top-1.5 right-8 " width="w-4.5" height="h-4.5"/>
       <div className="w-full relative  border-b-2 text-muted-foreground pl-2 pt-2 pb-2 text-sm ">CLI
       </div>
-      <div className="text-foreground max-w-xl pl-4 pt-2 pb-2 whitespace-pre-wrap">
+      <div className="text-foreground lg:max-w-3xl pl-4 pt-2 pr-2 pb-2 whitespace-pre-wrap">
        {text.split('\n').map((line , index)=>(
         <div key={index} >
           {line}

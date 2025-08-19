@@ -15,6 +15,7 @@ export function ThemeSelector() {
 
   const isDark = theme.endsWith("-dark")
 
+
   return (
     <Select
       value={theme.replace("-light", "").replace("-dark", "")}

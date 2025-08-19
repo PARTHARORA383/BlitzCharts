@@ -2,12 +2,12 @@
 
 import { cn } from "@/lib/utils"
 import { motion, number } from 'motion/react'
+import { useTheme } from "next-themes"
 import { it } from "node:test"
 import { useEffect, useState } from "react"
 
 export function StripePattern({ className, text }: { className?: string, text?: string }) {
-
-
+ 
   return <div>
 
     <div className={cn("relative p-4 py-8  border-none lg:ml-6", className)}>
@@ -70,6 +70,10 @@ export function BallDroppingPattern({ }) {
 
 export function Sparkles (){
 
+ const {theme} = useTheme()
+
+   const isDark = theme?.endsWith("-dark")
+
   const [sparkleoffsets , setSparkleoffsets] = useState<number[]>([]);
 
   useEffect(()=>{
@@ -110,8 +114,8 @@ export function Sparkles (){
             zIndex: 1,
           }}
 
-         className=" inline-block dark:bg-neutral-200 bg-orange-500 rounded-full"
-        />
+         className={` inline-block ${isDark ? "bg-neutral-200" : "bg-orange-500"}   bg-neutral-200 rounded-full"
+        `}/>
 
       ))}
     </div>

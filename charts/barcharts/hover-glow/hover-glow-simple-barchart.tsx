@@ -47,7 +47,7 @@ const chartConfig = {
 export function HoverGlowSimpleBarChart() {
   const [hoveredIndex , setHoveredIndex ] = useState(null);
   return (
-    <Card className="border-none rounded-none ">
+    <Card className="border-none rounded-none font-sans ">
       <CardHeader>
         <CardTitle>Bar Chart - Simple</CardTitle>
          <CardDescription className="">          Showing total visitors for the last 6 months

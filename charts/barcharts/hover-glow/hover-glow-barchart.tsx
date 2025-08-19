@@ -69,7 +69,7 @@ export default function CustomTooltip({ active, payload, label }: Props) {
 export function HoverGlowBarChart() {
   const [hoveredIndex , setHoveredIndex ] = useState(null);
   return (
-    <Card className="rounded-none border-none">
+    <Card className="rounded-none border-none font-sans">
       <CardHeader>
         <CardTitle className="text-neutral-400">Performance Overview</CardTitle>
               <CardDescription className="text-xl text-neutral-100 flex gap-2 items-baseline-last">$ 15,780.53 

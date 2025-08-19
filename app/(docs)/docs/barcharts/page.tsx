@@ -16,6 +16,7 @@ import { LiquidHoverBarChart } from "@/charts/barcharts/liquid-effect-bar/liquid
 import { LiquidFillHorizontalBarchart } from "@/charts/barcharts/liquid-effect-bar/liquid-fil-horizontal-barchart";
 import { WovenPattern } from "@/components/ui/pattern";
 import { ChartRenderGrid } from "@/app/utils/chart-render-grid";
+import { DelayMovementBarChart } from "@/charts/barcharts/Delay-Movement-BarChart";
 
 
 export default function BarchartHome() {
@@ -27,15 +28,16 @@ export default function BarchartHome() {
 
   const charts = [
 
-    <ChartDisplay component={<LiquidFillBarchart />} children={<LiquidFillBarchart />} jsoncontent={LiquidFillBarChartJson.files[0].content} charttype="Barchart - Liquid Fill" className="" clicommand={`${clicommand}/liquid-fill-barchart.json`} />,
-    <ChartDisplay component={<LiquidHoverBarChart />} children={<LiquidHoverBarChart />} jsoncontent={LiquidFillBarChartJson.files[0].content} charttype="Barchart - Hover me" className=" " clicommand={`${clicommand}/liquid-fill-barchart.json`} />,
+    <ChartDisplay component={<DelayMovementBarChart />} children={<DelayMovementBarChart />} jsoncontent={LiquidFillBarChartJson.files[0].content} charttype="Delayed Reveal Barchart" className="" clicommand={`${clicommand}/liquid-fill-barchart.json`} />,
+    <ChartDisplay component={<LiquidFillBarchart />} children={<LiquidFillBarchart />} jsoncontent={LiquidFillBarChartJson.files[0].content} charttype="Liquid Fill Barchart" className="" clicommand={`${clicommand}/liquid-fill-barchart.json`} />,
+    <ChartDisplay component={<LiquidHoverBarChart />} children={<LiquidHoverBarChart />} jsoncontent={LiquidFillBarChartJson.files[0].content} charttype="Liquid Fill Barchart " clicommand={`${clicommand}/liquid-fill-barchart.json`} />,
 
-    <ChartDisplay component={<HoverGlowBarChart />} children={<HoverGlowBarChart />} jsoncontent={HoverGlowBarChartJson?.files[0].content} charttype="Barchart" className="w-full" clicommand=
+    <ChartDisplay component={<HoverGlowBarChart />} children={<HoverGlowBarChart />} jsoncontent={HoverGlowBarChartJson?.files[0].content} charttype="Glowing Barchart" className="w-full" clicommand=
       {`${clicommand}/hover-glow-barchart.json`} />,
 
-    <ChartDisplay component={<HoverGlowSimpleBarChart />} children={<HoverGlowSimpleBarChart />} jsoncontent={HoverGlowSimpleBarChartJson.files[0].content} charttype="Barchart - simple" className="w-full" clicommand={`${clicommand}/hover-glow-simple-barchart.json`} />,
+    <ChartDisplay component={<HoverGlowSimpleBarChart />} children={<HoverGlowSimpleBarChart />} jsoncontent={HoverGlowSimpleBarChartJson.files[0].content} charttype="Glowing simple Barchart" className="w-full" clicommand={`${clicommand}/hover-glow-simple-barchart.json`} />,
 
-    <ChartDisplay component={<GradientMixedBarChart />} children={<GradientMixedBarChart />} jsoncontent={GradientMixedBarChartJson.files[0].content} charttype="Barchart" className="w-full" clicommand={`${clicommand}/gradient-mixed-barchart.json`} />,
+    <ChartDisplay component={<GradientMixedBarChart />} children={<GradientMixedBarChart />} jsoncontent={GradientMixedBarChartJson.files[0].content} charttype="Gradient Barchart" className="w-full" clicommand={`${clicommand}/gradient-mixed-barchart.json`} />,
   ]
 
 

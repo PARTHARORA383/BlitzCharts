@@ -16,6 +16,8 @@
     "@radix-ui/react-slot": "^1.2.3",
     "@radix-ui/react-tabs": "^1.1.12",
     "@radix-ui/react-tooltip": "^1.2.7",
+    "@react-three/drei": "^10.6.1",
+    "@react-three/fiber": "^9.3.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.526.0",
@@ -28,7 +30,8 @@
     "recharts": "^2.15.4",
     "shiki": "^3.8.1",
     "styled-components": "^6.1.19",
-    "tailwind-merge": "^3.3.1"
+    "tailwind-merge": "^3.3.1",
+    "three": "^0.179.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

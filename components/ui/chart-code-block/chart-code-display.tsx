@@ -11,15 +11,17 @@ import CodeBlock, { CLIBlock } from './code-block'
 interface ChartCodeDisplayProps{
   code : string
   component : React.ReactNode,
-  clicommand : string
+  clicommand : string,
+  themecli?: string
 }
 
-export default function ChartCodeDisplay({code , component , clicommand}:ChartCodeDisplayProps) {
+export default function ChartCodeDisplay({code , component , clicommand ,themecli}:ChartCodeDisplayProps) {
 
   return (
 
-    <Tabs defaultValue="code" className="w-[600px]">
+    <Tabs defaultValue="code" className="max-w-3xl w-full">
         <CLIBlock text= {clicommand}/>
+
       <TabsList className='gap-2 mt-4'>
         <TabsTrigger value="code">Code</TabsTrigger>
         <TabsTrigger value="preview">Preview</TabsTrigger>

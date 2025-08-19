@@ -2,18 +2,19 @@
 "use client"
 
 import Link from "next/link"
+import { blitzFont } from "./typography"
 import { ThemeToggle } from "@/components/ui/toglebutton"
 import { Button } from "@/components/ui/button"
-import { Github, Sparkle } from "lucide-react"
-import { blitzFont } from "./typography"
+import { Github, Sparkle, UserRound } from "lucide-react"
 import {motion } from 'motion/react'
 import { Sparkles } from "./pattern"
 import { ThemeSelector } from "./theme-selector"
+import { useRouter } from "next/navigation"
 
 export function Topbar() {
   
 const balls = Array.from({ length: 12 })
-
+const router= useRouter()
   return (
     <header className=" sticky top-0 z-50 w-full border-b-2 border-border/40 bg-[var(--background)]">
  
@@ -22,10 +23,12 @@ const balls = Array.from({ length: 12 })
 
       <div className=" relative flex items-center  lg:justify-center px-4 py-3">
         {/* Left: Brand */}
-        <Link href="/" className={` ${blitzFont.className} text-2xl font-bold tracking-tight`
+          <a
+          href="/"
+         className={` ${blitzFont.className} text-2xl font-bold tracking-tight`
         }>
           BlitzCharts
-        </Link>
+        </a>
         
         {/* Right: GitHub + Theme Toggle */}
         <div className="absolute right-2 lg:right-8 flex items-center gap-2">
@@ -47,15 +50,6 @@ const balls = Array.from({ length: 12 })
           </Button>
 
           <ThemeToggle />
-              {/* <Button asChild variant= "default">
-            <a
-              href="https://twitter.com/partharora9128"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Work with us
-            </a>
-          </Button> */}
 
         </div>
       </div>

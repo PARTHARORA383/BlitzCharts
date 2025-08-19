@@ -90,7 +90,7 @@ function LiquidHoverBarChart() {
   const [hoverIndex, setHoverIndex] = useState(false);
 
   return (
-    <Card className="border-none rounded-none">
+    <Card className="border-none rounded-none font-sans">
 
 
       <CardHeader>

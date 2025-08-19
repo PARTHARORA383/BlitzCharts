@@ -18,7 +18,6 @@ import {
   ChartTooltipContent,
 } from "@/components/ui/chart"
 
-
 export const description = "A bar chart with an active bar"
 
 const chartData = [
@@ -67,8 +66,12 @@ const chartConfig = {
 } satisfies ChartConfig
 
 export function GradientMixedBarChart({ layout }: { layout?: LayoutType }) {
+
+
+
+  
   return (
-    <Card className="border-none rounded-none">
+    <Card className="border-none rounded-none font-sans">
       <CardHeader>
         <CardTitle>Bar Chart - Active</CardTitle>
         <CardDescription>January - June 2024</CardDescription>

@@ -1,6 +1,7 @@
 
 import { cn } from "@/lib/utils"
 import ChartCodeSheet from "./chart-code-sheet"
+import { DialogDemo } from "@/app/utils/chart-code-dialog"
 import { Button } from "@/components/ui/button"
 interface ChartDisplayProps{
 children : React.ReactNode,
@@ -24,7 +25,8 @@ export default function ChartDisplay({children , charttype ,className , jsoncont
 <div className="flex items-center justify-between gap-2 px-4 py-2 ">
   <span className="truncate">{charttype}</span>
 
-  <ChartCodeSheet
+  <DialogDemo
+
     clicommand={clicommand}
     component={component}
     name={charttype}
@@ -37,7 +39,7 @@ export default function ChartDisplay({children , charttype ,className , jsoncont
     >
       View Code
     </Button>
-  </ChartCodeSheet>
+  </DialogDemo>
 </div>
 
 

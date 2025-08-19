@@ -17,7 +17,7 @@ export default function ChartCodeSheet({
   return (
     <Sheet  >
       <SheetTrigger asChild>{children}</SheetTrigger>
-      <SheetContent className="lg:pl-8 pl-2 pr-2 lg:pr-8 bg-popover">
+      <SheetContent className="lg:pl-8 pl-2 pr-2 lg:pr-8 bg-popover ">
         <SheetHeader>
           <SheetTitle>
             <div className="text-xl"> 
