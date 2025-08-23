@@ -17,11 +17,12 @@ export function Hero() {
   const [lens, setLens] = useState({ x: -9999, y: -9999 });
   // smoothed radius for fade/shrink
   const [radius, setRadius] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
   const rafRef = useRef<number | null>(null);
-  const MAX_R = 125; // visible radius in px
-  const FOLLOW = 0.18; // smoothing for position
-  const EASE = 0.22; // smoothing for radius
+  const MAX_R = 125;
+  const FOLLOW = 0.18;
+  const EASE = 0.22;
 
   const [overCenter, setOverCenter] = useState(false);
 
@@ -39,13 +40,20 @@ export function Hero() {
     };
     rafRef.current = requestAnimationFrame(loop);
 
+    // detect mobile
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
     return () => {
       window.removeEventListener("mousemove", onMove);
+      window.removeEventListener("resize", checkMobile);
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
   }, [mouse.x, mouse.y, overCenter]);
 
-  // build a radial mask that ALWAYS hides charts unless inside the lens circle
   const mask = `radial-gradient(${Math.max(
     0.001,
     radius
@@ -66,7 +74,14 @@ export function Hero() {
         </Link>
       </div>
 
-      {/* Charts layer (hidden by default; revealed only inside mask) */}
+      {/* Mobile notification bar */}
+      {isMobile && (
+        <div className="fixed top-48 left-1/2 transform -translate-x-1/2 bg-red-100 text-red-800 text-md px-4 py-1 w-sm rounded-md shadow z-50">
+          Mobile device detected — Use desktop for the best experience
+        </div>
+      )}
+
+      {/* Charts layer */}
       <div
         className="absolute inset-0 -z-10 pointer-events-none"
         style={{
@@ -93,7 +108,7 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Glass Lens (fades & shrinks smoothly over center) */}
+      {/* Glass Lens */}
       <div
         className="fixed pointer-events-none rounded-full border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.25)]
                    before:content-[''] before:absolute before:inset-0 before:rounded-full
@@ -104,18 +119,18 @@ export function Hero() {
           height: radius * 2,
           left: lens.x - radius,
           top: lens.y - radius,
-          opacity: Math.min(1, Math.max(0, radius / MAX_R)), // smooth fade
-          transition: "opacity 120ms linear", // subtle extra smoothness
+          opacity: Math.min(1, Math.max(0, radius / MAX_R)),
+          transition: "opacity 120ms linear",
         }}
       />
 
-      {/* Center Card (disables lens reveal while hovered) */}
+      {/* Center Card */}
       <div
-        className="absolute h-[300px] w-[560px] z-50 shadow-2xl border rounded-lg overflow-hidden"
+        className="absolute  md:h-[300px] md:w-[480px] lg:w-[560px] z-50 shadow-2xl border rounded-lg overflow-hidden p-4 ml-2 mr-2"
         onMouseEnter={() => setOverCenter(true)}
         onMouseLeave={() => setOverCenter(false)}
       >
-        <Center />
+        {isMobile ? <CenterMobile /> : <Center />}
       </div>
     </div>
   );
@@ -142,32 +157,45 @@ function Center() {
         Access an ever-growing collection of premium animated charts built for{" "}
         <span className="font-semibold">shadcn/ui ecosystem</span>
       </div>
-      <div className="flex justify-center items-center mt-4 ">
+      <div className="flex justify-center items-center mt-4">
         <div className="-translate-x-8 mt-4">
           <a href={"/docs/areacharts"}>
             <ButtonUiVerse height={8} width={8} text={"Documentation"} />
           </a>
         </div>
-        {/* <a
-          href="https://github.com/your-repo"
+        <a
+          href="https://github.com/Partharora383/Blitzcharts"
           target="_blank"
           rel="noopener noreferrer"
-          className="px-4 py-2 mt-4 mr-4 rounded-lg border border-gray-300 flex items-center gap-2 hover:bg-gray-100 transition"
+          className="mt-6"
         >
-          <Github className="w-4 h-4" />
-          Star us on GitHub
-        </a> */}
-        
-          <a href="https://github.com/Partharora383/Blitzcharts"
-                    target="_blank"
+          <GithubButton />
+        </a>
+      </div>
+    </div>
+  );
+}
+
+function CenterMobile() {
+  return (
+    <div className="font-sans cursor-default bg-transparent p-4">
+      <div className="text-2xl font-medium">BlitzCharts</div>
+      <div className="text-muted-foreground text-md pt-2">
+        Access an ever-growing collection of premium animated charts built for shadcn ecosystem
+      </div>
+      <div className="mt-6 flex justify-between items-center gap-2">
+        <a
+          href="/docs/areacharts"
+        >
+        <button className=" bg-red-200 rounded-md font-medium px-auto py-2 h-9 px-6"> See Docs</button>
+        </a>
+        <a
+          href="https://github.com/Partharora383/Blitzcharts"
+          target="_blank"
           rel="noopener noreferrer"
-          className="mt-6">
-            
-
-        <GithubButton />
-          </a>
-        
-
+        >
+          <GithubButton />
+        </a>
       </div>
     </div>
   );
